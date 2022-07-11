@@ -23,7 +23,7 @@ services:
     environment:
       - NODE_ENV=dev
     volumes:
-      - ./srctype:/localsrc
+      - ./srcnode:/localsrc
       - /localsrc/node_modules
     ports:
       - '3000:3000'
