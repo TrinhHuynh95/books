@@ -1,0 +1,30 @@
+@import "src/scss/mixins";
+
+:host {
+  display: flex;
+  justify-content: center;
+  margin: px2rem(50) px2rem(0);
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: px2rem(300);
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  padding: px2rem(20);
+  width: px2rem(260);
+  color: white;
+  background-color: red;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+}

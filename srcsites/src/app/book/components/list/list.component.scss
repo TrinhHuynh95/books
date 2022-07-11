@@ -1,0 +1,18 @@
+@use 'sass:math';
+@import "src/scss/mixins";
+
+.bw-home {
+  display: flex;
+  flex-direction: row;
+  .bw-home-on-sale-list {
+    margin-top: px2rem(10);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: px2rem(20);
+    flex: 1 1 0;
+    .bw-home-on-sale-item {
+      width: calc(25% - #{px2rem(20*3/4)});
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<!-- Toolbar -->
+<header>
+  <mat-toolbar>
+    <img class="bw-header-image" src="./assets/images/no-image.png" alt=""/>
+    <span class="title">{{title}}</span>
+    <span class="example-spacer"></span>
+    <a mat-button href="/">Home</a>
+    <a *ngIf="!user?._id" mat-button href="/login">Login</a>
+    <a *ngIf="user?._id" mat-button href="/cart">Cart({{total}})</a>
+    <a *ngIf="user?._id" (click)="logout()">{{user?.email}}</a>
+  </mat-toolbar>
+</header>
+
+<div class="bw-container">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,48 @@
+<mat-card>
+  <mat-card-title>Add Book</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Title" formControlName="book_title">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <mat-select formControlName="category_id" placeholder="Category">
+            <mat-option *ngFor="let category of categories" [value]="category._id">
+              {{category.category_name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Description" formControlName="book_summary">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Price" formControlName="book_price">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Quantity" formControlName="quantity">
+        </mat-form-field>
+      </p>
+
+      <div *ngIf="error.length" class="error">
+        <div *ngFor="let err of error">{{err}}</div>
+      </div>
+      <div class="button">
+        <button type="submit" mat-button>Create</button>
+      </div>
+
+    </form>
+  </mat-card-content>
+</mat-card>

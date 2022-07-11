@@ -23,10 +23,9 @@ services:
     environment:
       - NODE_ENV=dev
     volumes:
-      - ./src:/localsrc
+      - ./srctype:/localsrc
       - /localsrc/node_modules
     ports:
       - '3000:3000'
-      - '4200:4200'
     depends_on:
       - mongo_db

@@ -1,0 +1,27 @@
+@import '../scss/mixins.scss';
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  width: 100%;
+}
+
+header {
+  .bw-header-image {
+    width: px2rem(32);
+    height: px2rem(32);
+  }
+  .title {
+    margin-left: px2rem(10);
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+}
+
+.bw-container {
+  padding: px2rem(30) px2rem(40);
+  display: grid;
+}
+

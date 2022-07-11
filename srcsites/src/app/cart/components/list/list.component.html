@@ -1,0 +1,28 @@
+
+<button mat-button (click)="order()">Buy</button>
+<button mat-button >{{total}}$</button>
+<div class="bw-home">
+  <div class="bw-home-on-sale">
+    <div class="bw-home-on-sale-list">
+      <div *ngFor="let book of carts" class="bw-home-on-sale-item">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <img src="{{ book.author?.avatar_url || 'assets/images/no-image.png' }}" mat-card-avatar class="example-header-image" alt=""/>
+            <mat-card-title>{{book.book_title}}</mat-card-title>
+            <mat-card-subtitle>{{book.author?.author_name}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="{{ book.book_cover_photo_url }}" alt="{{book.book_title}}">
+          <mat-card-content>
+            <p>
+              {{book.book_summary}}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <a href="/book/{{book._id}}" mat-button>Detail</a>
+            <button mat-button>Quantity({{book.cart}})</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
