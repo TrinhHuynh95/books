@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  mongo_db:
+    image: mongo:latest
+    container_name: mongo_db
+    restart: unless-stopped
+    environment:
+      AUTH: 'yes'
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: secret071
+      MONGO_INITDB_DATABASE: salary
+    volumes:
+      - ./data/mongo_db:/data/db
+    ports:
+      - '27017:27017'
+  server_node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nodejs
+    container_name: server_node
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=dev
+    volumes:
+      - ./src:/localsrc
+      - /localsrc/node_modules
+    ports:
+      - '3000:3000'
+      - '4200:4200'
+    depends_on:
+      - mongo_db
